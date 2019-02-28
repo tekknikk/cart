@@ -119,10 +119,6 @@ ProductSchema.statics = {
                 },
                 { $ceil: "$tax"}]
             }
-
-            // total: {
-            //     $sum: ["$subtotal", "$tax"]
-            // }
           }
         }
       ])

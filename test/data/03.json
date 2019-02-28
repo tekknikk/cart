@@ -19,6 +19,7 @@
   ],
   "result": {
     "customerId": "5c611ea993568c7405def003",
+    "tax": 35,
     "total": 314.96
   }
 }

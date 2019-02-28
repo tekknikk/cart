@@ -45,7 +45,8 @@ describe('API for Products', () => {
           console.log('products test: ', res.body[0])
           expect(res.body).to.be.not.empty
           expect(res.body).length.to.have.length.greaterThan(0)
-          expect(res.body[0].total).to.equal(data.result.total)
+          expect(res.body[0].tax).to.equal(data.result.tax)
+          expect(res.body[0].total).to.equal(data.result.total)          
         })
     })
   })
