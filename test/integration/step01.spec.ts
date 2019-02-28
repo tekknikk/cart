@@ -18,7 +18,7 @@ before(() => {
 describe('API for Products', () => {
 
   describe('POST /products', () => {
-    it('[STEP01] should successfully create a product with quantity of 5', function() {
+    it('[STEP01.1] should successfully create a product with quantity of 5', function() {
       return request(app)
         .post('/products')
         .send(data.product)
@@ -34,7 +34,7 @@ describe('API for Products', () => {
   });
 
   describe('GET /products', () => {
-    it('[STEP01] should successfully return a list of products', function() {
+    it('[STEP01.2] should successfully return a list of products grouped by customer', function() {
       return request(app)
         .get('/products')
         .set('Content-Type', 'application/json')

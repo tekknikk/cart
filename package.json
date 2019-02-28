@@ -43,8 +43,8 @@
   "scripts": {
     "lint": "tslint --project .",
     "build": "node_modules/.bin/tsc",
-    "test:dev": "npm run build && NODE_ENV='test' istanbul cover ./node_modules/mocha/bin/_mocha test/**/*.spec.js",
-    "test:prod": "npm run build && istanbul cover ./node_modules/mocha/bin/_mocha test/**/*.spec.js",
+    "test:step01": "npm run build && istanbul cover ./node_modules/mocha/bin/_mocha test/**/step01*.spec.js",
+    "test:step02": "npm run build && istanbul cover ./node_modules/mocha/bin/_mocha test/**/step02*.spec.js",
     "cover": "npm run test:dev && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "start": "npm run build && node server.js",
     "start:dev": "npm run build && nodemon server.js"
