@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "customerId": "5c611ea993568c7405def003",
+      "price": 39.99,
+      "quantity": 2,
+      "tax": 0.125,
+      "status": "New",
+      "name": "Dove Soap"
+    },
+    {
+      "customerId": "5c611ea993568c7405def003",
+      "price": 99.99,
+      "quantity": 2,
+      "tax": 0.125,
+      "status": "New",
+      "name": "Axe Deo"
+    }
+  ],
+  "result": {
+    "customerId": "5c611ea993568c7405def003",
+    "total": 314.96
+  }
+}

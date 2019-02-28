@@ -9,6 +9,7 @@ interface IProductDocument extends mongoose.Document {
   description: string
   price: number
   quantity: number
+  tax: number
   status: String
   createdAt: Date
   modifiedAt: Date
@@ -36,6 +37,10 @@ const ProductSchema = new Schema({
   quantity: {
     type: Number,
     required: true
+  },
+  tax: {
+    type: Number,
+    required: false
   },
   status: {
     type: String,
@@ -70,6 +75,7 @@ ProductSchema.statics = {
       name: product.name,
       price: product.price,
       quantity: product.quantity,
+      tax: product.tax,
       status: product.status,
     }).save()
   },
@@ -89,18 +95,34 @@ ProductSchema.statics = {
         {
           $group: {
             _id: "$customerId",
-            total: {$sum: {$multiply: [ "$price", "$quantity" ]}}
+            subtotal: {$sum: {$multiply: [ "$price", "$quantity" ]}},
+            tax: {$sum: {$multiply: [ "$price", "$quantity", "$tax"]}},
           }
         },
         {
           $project: {
-            total: {
+            subtotal: {
                 $divide: [{
                     $trunc: {
-                        $multiply: ["$total", 100]
+                        $multiply: ["$subtotal", 1000]
                     }
-                }, 100]
+                }, 1000]
+            },
+            tax: { $ceil: "$tax"},
+            total: {
+                $sum: [{
+                  $divide: [{
+                      $trunc: {
+                          $multiply: ["$subtotal", 1000]
+                      }
+                  }, 1000]
+                },
+                { $ceil: "$tax"}]
             }
+
+            // total: {
+            //     $sum: ["$subtotal", "$tax"]
+            // }
           }
         }
       ])

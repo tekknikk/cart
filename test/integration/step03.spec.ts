@@ -7,7 +7,7 @@ import { config } from '../../config/env'
 const expect = chai.expect
 const assert = chai.assert
 const request = require('supertest')
-const data = require('../data/02')
+const data = require('../data/03')
 
 before(() => {
   Product.remove({}, () => {
@@ -19,7 +19,7 @@ describe('API for Products', () => {
 
   describe('POST /products', () => {
     data.products.forEach(function (product: any) {
-      it('[STEP02.1] should successfully create a product with quantity of 5', function() {
+      it('[STEP03.1] should successfully create a product with quantity of 5', function() {
         return request(app)
           .post('/products')
           .send(product)
@@ -36,7 +36,7 @@ describe('API for Products', () => {
   })
 
   describe('GET /products', () => {
-    it('[STEP02.2] should successfully return a list of products grouped by customer', function() {
+    it('[STEP03.2] should successfully return a list of products grouped by customer', function() {
       return request(app)
         .get('/products')
         .set('Content-Type', 'application/json')
