@@ -1,0 +1,12 @@
+{
+  "product": {
+    "customerId": "5c611ea993568c7405def32c",
+    "price": 39.99,
+    "quantity": 5,
+    "status": "New",
+    "name": "Dove Soap"
+  },
+  "result": {
+    "total": 199.95
+  }
+}

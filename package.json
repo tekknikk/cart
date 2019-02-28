@@ -1,0 +1,52 @@
+{
+  "name": "cart",
+  "description": "API micro service for a shopping cart",
+  "version": "0.1.0",
+  "author": "SkynetInc Dev Team",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skynetinc/cart"
+  },
+  "dependencies": {
+    "@types/chai": "^4.0.5",
+    "@types/mocha": "^2.2.44",
+    "@types/mongoose": "^4.7.32",
+    "@types/node": "^8.0.53",
+    "@types/request": "^2.0.8",
+    "@types/restify": "^5.0.6",
+    "@types/sinon": "^4.0.0",
+    "@types/supertest": "^2.0.6",
+    "client-oauth2": "^4.2.1",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.14",
+    "qup": "^2.0.1",
+    "request": "^2.83.0",
+    "restify": "^7.2.3",
+    "restify-cors-middleware": "^1.1.1",
+    "restify-errors": "^6.1.1",
+    "restify-jwt-community": "^1.0.8",
+    "run-parallel": "^1.1.6",
+    "superagent": "^4.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.17.4",
+    "sinon": "^4.1.2",
+    "supertest": "^3.3.0",
+    "tslint": "^5.8.0",
+    "tslint-eslint-rules": "^4.1.1",
+    "typescript": "^3.1.6"
+  },
+  "scripts": {
+    "lint": "tslint --project .",
+    "build": "node_modules/.bin/tsc",
+    "test:dev": "npm run build && NODE_ENV='test' istanbul cover ./node_modules/mocha/bin/_mocha test/**/*.spec.js",
+    "test:prod": "npm run build && istanbul cover ./node_modules/mocha/bin/_mocha test/**/*.spec.js",
+    "cover": "npm run test:dev && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "start": "npm run build && node server.js",
+    "start:dev": "npm run build && nodemon server.js"
+  }
+}

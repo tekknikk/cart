@@ -1,0 +1,3 @@
+--exit
+--trace-warnings
+--timeout 15000
